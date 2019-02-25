@@ -77,7 +77,7 @@ class Server11 implements ActionListener
     {
       msg=t2.getText();
       System.out.println("message Displayed: "+msg);
-      his_mess+="Munish": "+msg+"\n";
+      his_mess+="Munish: "+msg+"\n";
       System.out.println("history: \n"+his_mess);
       history.setText(his_mess);
       t2.setText("");
