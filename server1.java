@@ -67,7 +67,7 @@ class Server11 implements ActionListener
       String un=t1.getText();
       String pwd=p1.getText();
       System.out.println(un+" "+pwd);
-      if (un.equals("Rashi") && pwd.equals("mine"))
+      if (un.equals("Munish") && pwd.equals("1234"))
       {
         f.setVisible(false);
         f2.setVisible(true);
@@ -77,7 +77,7 @@ class Server11 implements ActionListener
     {
       msg=t2.getText();
       System.out.println("message Displayed: "+msg);
-      his_mess+="Rashi: "+msg+"\n";
+      his_mess+="Munish": "+msg+"\n";
       System.out.println("history: \n"+his_mess);
       history.setText(his_mess);
       t2.setText("");
