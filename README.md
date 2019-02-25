@@ -6,7 +6,7 @@ For client side:-
 For Server side: -
   Username-Munish
   Password-1234
-Both the processes must be ru simultaneously.
+Both the processes must be run simultaneously.
 Align both the windows adjacent for better view and understanding.
 
 
