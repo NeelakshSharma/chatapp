@@ -103,7 +103,7 @@ class Client11 implements ActionListener
         if(r_msg!=null)
         {
           System.out.println(r_msg);
-          his_mess+="Sender": "+r_msg+"\n";
+          his_mess+="Sender: "+r_msg+"\n";
           history.setText(his_mess);
         }
       }
