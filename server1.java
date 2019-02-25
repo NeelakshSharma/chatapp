@@ -1,11 +1,12 @@
 import javax.swing.*;
 import java.util.*;
+import java.net.ServerSocket;
 import java.net.Socket;
 import java.io.*;
 import java.awt.*;
 import java.awt.event.*;
 
-class Client11 implements ActionListener
+class Server11 implements ActionListener
 {
   static String his_mess="",msg,r_msg;
   JFrame f;
@@ -16,11 +17,12 @@ class Client11 implements ActionListener
   static JTextArea history;
   static Scanner sc;
   PrintStream p;
-  static Socket so;
-  Client11()
+  static ServerSocket so;
+  static Socket ss;
+  Server11()
   {
-    f=new JFrame("Client side");
-    f2=new JFrame("Welcome client side");
+    f=new JFrame("Server side");
+    f2=new JFrame("Welcome Server side");
     b1=new JButton("Login");
     b2=new JButton(">>");
     t1=new JTextField();
@@ -65,7 +67,7 @@ class Client11 implements ActionListener
       String un=t1.getText();
       String pwd=p1.getText();
       System.out.println(un+" "+pwd);
-      if (un.equals("Neelaksh") && pwd.equals("mine"))
+      if (un.equals("Munish") && pwd.equals("1234"))
       {
         f.setVisible(false);
         f2.setVisible(true);
@@ -75,13 +77,13 @@ class Client11 implements ActionListener
     {
       msg=t2.getText();
       System.out.println("message Displayed: "+msg);
-      his_mess+="Neelaksh: "+msg+"\n";
+      his_mess+="Munish": "+msg+"\n";
       System.out.println("history: \n"+his_mess);
       history.setText(his_mess);
       t2.setText("");
       try
       {
-        p=new PrintStream(so.getOutputStream());
+        p=new PrintStream(ss.getOutputStream());
       }
       catch(Exception e1)
       {
@@ -92,25 +94,33 @@ class Client11 implements ActionListener
   }
   public static void main(String[] args)
   {
-    new Client11();
     try
     {
-      so=new Socket("192.168.1.5",8080);
-      sc=new Scanner(so.getInputStream());
+        so=new ServerSocket(8080);
+        ss=so.accept();
+    }
+    catch(Exception e)
+    {
+      System.out.println(e);
+    }
+    new Server11();
+    try
+    {
+      sc=new Scanner(ss.getInputStream());
       while(true)
       {
         r_msg=sc.nextLine();
         if(r_msg!=null)
         {
           System.out.println(r_msg);
-          his_mess+="Sender": "+r_msg+"\n";
+          his_mess+="Neelaksh: "+r_msg+"\n";
           history.setText(his_mess);
         }
       }
     }
     catch(Exception e)
     {
-      System.out.println(e);
+      System.out.println(e+"while scanning");
     }
   }
 }
